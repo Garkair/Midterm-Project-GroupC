@@ -28,6 +28,17 @@ print(df.head())
 
 # Data Loading and Initial Exploration
 # Data Inspection
+
+print("\nShape of dataset:", df.shape)
+
+print("\nColumn names:", df.columns)
+
+print("\nDataset info:", df.info())
+
+print("\nMissing values in each column:\n", df.isnull().sum())
+
+print("\nNumber of duplicate rows:", df.duplicated().sum())
+
 # Data Cleaning
 # Data Processing
 # Exploratory Data Analysis (EDA)
