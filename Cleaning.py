@@ -40,22 +40,20 @@ def clean_dataset(df):
     Returns:
         pandas.DataFrame: Cleaned dataset.
     """
-
     print("Initial shape:", df.shape)
 
-    # 1. REMOVE DUPLICATES
+    # 1. Remove duplicates
     df = df.drop_duplicates()
     print("After removing duplicates:", df.shape)
 
-    # 2. HANDLE MISSING VALUES
+    # 2. Show missing values
     print("\nMissing values BEFORE cleaning:")
     print(df.isnull().sum())
 
     strategy = input("\nChoose cleaning strategy (fill/drop): ").strip().lower()
 
     if strategy == "fill":
-        # Forward fill (simple and acceptable for assignment)
-        df = df.fillna(method="ffill")
+        df = df.ffill()
         print("Missing values filled using forward fill.")
     elif strategy == "drop":
         df = df.dropna()
@@ -66,7 +64,7 @@ def clean_dataset(df):
     print("\nMissing values AFTER cleaning:")
     print(df.isnull().sum())
 
-    # 3. DROP A COLUMN (assignment requirement)
+    # 3. Drop a column
     print("\nColumns in dataset:")
     print(list(df.columns))
 
@@ -78,8 +76,7 @@ def clean_dataset(df):
     elif drop_col != "":
         print("Column not found. Skipping.")
 
-    # 4. REMOVE INVALID VALUES (example rule)
-    # Remove negative values from numeric columns
+    # 4. Remove invalid negative values from numeric columns
     numeric_cols = df.select_dtypes(include=["int64", "float64"]).columns
 
     for col in numeric_cols:
@@ -99,7 +96,6 @@ def main():
         print("Dataset is empty. Exiting.")
         return
 
-    # Show overview
     print("\n--- DATASET OVERVIEW ---")
     print(df.head())
 
@@ -109,11 +105,15 @@ def main():
     print("\n--- MISSING VALUES ---")
     print(df.isnull().sum())
 
-    # Clean dataset
+    # Clean the dataset
     df = clean_dataset(df)
 
     print("\n--- CLEANED DATA PREVIEW ---")
     print(df.head())
+
+    # Save the cleaned dataset
+    df.to_csv("cleaned_social_media_productivity.csv", index=False)
+    print("\nCleaned dataset saved as 'cleaned_social_media_productivity.csv'")
 
 
 if __name__ == "__main__":
