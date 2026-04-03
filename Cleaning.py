@@ -6,14 +6,14 @@ def load_dataset(file_name):
     Load a CSV file safely.
 
     Args:
-        file_name (str): social_media_productivity_6000.csv
+        file_name (str): CSV filename.
 
     Returns:
         pandas.DataFrame: Loaded dataset.
     """
     try:
         df = pd.read_csv(file_name)
-        print("Dataset loaded successfully.\n")f
+        print("Dataset loaded successfully.\n")
         return df
     except FileNotFoundError:
         print(f"File not found: {file_name}")
