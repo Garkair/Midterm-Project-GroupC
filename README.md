@@ -16,15 +16,15 @@ project/
 │   ├── social_media_productivity_6000.csv     ← Raw dataset (source of truth)
 │   └── cleaned_social_media_productivity.csv  ← Output of Cleaning.py
 │
-├── scripts/
+├── python files/
 │   ├── Cleaning.py                      ← Step 1: Clean & save the dataset
-│   ├── social_media_analysis.py         ← Step 2: EDA + 9 visualizations (saves PNGs)
+│   ├── social_media_analysis.py         ← Step 2: EDA + 9 visualizations (saves PNGs on root folder)
 │   └── Python_script_v3.py             ← Step 3: Full ML pipeline (models + dashboard)
 │
-├── batch/
-│   ├── 3runCleaning.bat                 ← Double-click to run Step 1 (Windows)
-│   ├── 1runAnalysis.bat                 ← Double-click to run Step 2 (Windows)
-│   └── 2runPipeline.bat                 ← Double-click to run Step 3 (Windows)
+│  
+│────── 1runCleaning.bat                 ← Double-click to run Step 1 - Clean & save the dataset(Windows)
+│────── 2runAnalysis.bat                 ← Double-click to run Step 2 - EDA + 9 visualizations (Windows)
+│────── 3runPipeline.bat                 ← Double-click to run Step 3 - Full ML pipeline (models + dashboard)(Windows)
 │
 ├── outputs/
 │   ├── eda_visualizations.png           ← 9-panel EDA figure
